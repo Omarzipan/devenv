@@ -6,7 +6,7 @@ sleep_cnt=0
 limit=5
 
 while [ $sleep_cnt -lt $limit ]; do
-    if docker-compose exec mysql mysql -uroot; then break; fi
+    if docker-compose exec mysql $1; then break; fi
     >&2 echo "MySQL is unavailable - sleeping"
     sleep 1
     sleep_cnt=$(($sleep_cnt+1))
